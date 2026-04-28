@@ -16,6 +16,15 @@
             >
                {% partialdef change_password_form inline %}
                   {% csrf_token %}
+
+                  {% if message %}
+                     <c-message
+                        message="{{ message }}"
+                        type="success"
+                        extra-classes="mb-5 w-fit px-2 py-1"
+                     />
+                  {% endif %}
+
                   <c-user-input-field
                      :field="form.old_password"
                      label="Current password:"

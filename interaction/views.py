@@ -11,7 +11,7 @@ from user.models import Follow
 from django.conf import settings
 from interaction.forms import CommentForm
 from interaction.models import Comment, Like
-from config.utils import User, tailwind_comment_spaces
+from core.utils import User, tailwind_comment_spaces
 
 instance_dict = {"blog": Blog, "comment": Comment}
 

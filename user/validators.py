@@ -11,7 +11,7 @@ from django.core.validators import (
     URLValidator,
 )
 
-from config.utils import User
+from core.utils import User
 
 
 # Sign in validators

@@ -1,6 +1,6 @@
 from django import forms
 
-from config.utils import User
+from core.utils import User
 from user.validators import (
     signin_validators,
     signup_validators,

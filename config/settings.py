@@ -29,7 +29,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1"])
 
 
 # Application definition
@@ -52,6 +52,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
+    "core.apps.CoreConfig",
     "user.apps.UserConfig",
     "blog.apps.BlogConfig",
     "interaction.apps.InteractionConfig",
@@ -84,9 +85,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "config.context_processors.GET_params_str",
-                "config.context_processors.top_users",
-                "config.context_processors.notifications",
+                "core.context_processors.GET_params_str",
+                "core.context_processors.top_users",
+                "core.context_processors.notifications",
             ]
         },
     },
@@ -98,12 +99,24 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if env.bool("USE_POSTGRES", default=False):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": env.str("POSTGRES_DB"),
+            "USER": env.str("POSTGRES_USER"),
+            "PASSWORD": env.str("POSTGRES_PASSWORD"),
+            "HOST": env.str("POSTGRES_HOST"),
+            "PORT": env.str("POSTGRES_PORT"),
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
@@ -142,7 +155,7 @@ MAX_SUBCOMMENTS = 3
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "assets"
-STATICFILES_DIRS = [BASE_DIR / "config/static"]
+STATICFILES_DIRS = [BASE_DIR / "core/static"]
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"

@@ -7,8 +7,12 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 
-from config.utils import User, sign_in_url, paginate_and_get_page, get_snapshot
+from core.utils import User, sign_in_url, paginate_and_get_page, get_snapshot
 from user.forms import SigninForm, SignupForm, EditProfileForm, ChangePasswordForm
+
+
+def default_redirect_view(request):
+    return redirect("blog:index", partial=None)
 
 
 # Create your views here.
@@ -149,6 +153,7 @@ def profile_view(request, user_id, partial="None"):
                 user.set_password(new_password)
                 user.save(update_fields=["password"])
                 update_session_auth_hash(request, user)
+                context["message"] = "Password changed successfully!"
         else:
             form = ChangePasswordForm(user=request.user)
         context["form"] = form

@@ -3,7 +3,7 @@ from django.conf import settings
 from treebeard.mp_tree import MP_Node, MP_NodeQuerySet, MP_NodeManager
 from django.db.models import Q, F, CheckConstraint, UniqueConstraint, Exists, OuterRef
 
-from config.manager import QuerySetMixin
+from core.manager import QuerySetMixin
 
 
 # custom django-treebeard manager must inherit from specific tree's manager https://django-treebeard.readthedocs.io/en/latest/mp_tree.html#treebeard.mp_tree.MP_NodeQueryset

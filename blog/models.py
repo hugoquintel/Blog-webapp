@@ -4,7 +4,7 @@ from django.conf import settings
 from django.db.models import F, Exists, OuterRef
 
 from interaction.models import Like
-from config.manager import QuerySetMixin
+from core.manager import QuerySetMixin
 
 
 def user_blog_section_picture_path(instance, filename):

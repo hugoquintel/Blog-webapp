@@ -11,7 +11,7 @@ from blog.models import Blog
 from interaction.models import Comment
 from interaction.forms import CommentForm
 from blog.forms import CreateBlogForm, BlogSectionFormSet, SearchForm
-from config.utils import (
+from core.utils import (
     User,
     tailwind_comment_spaces,
     sign_in_url,

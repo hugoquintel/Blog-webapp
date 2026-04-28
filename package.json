@@ -1,15 +1,15 @@
 {
-  "dependencies": {
-    "@tailwindcss/cli": "^4.1.18",
-    "tailwindcss": "^4.1.18"
-  },
-  "scripts": {
-    "start": "npx @tailwindcss/cli -i ./config/static/css/tailwind/input.css -o ./config/static/css/tailwind/output.css --watch",
-    "build": "npx @tailwindcss/cli -i ./config/static/css/tailwind/input.css -o ./config/static/css/tailwind/output.css --min"
-  },
-  "devDependencies": {
-    "prettier": "^3.7.4",
-    "prettier-plugin-jinja-template": "^2.1.0",
-    "prettier-plugin-tailwindcss": "^0.7.2"
-  }
+   "dependencies": {
+      "@tailwindcss/cli": "^4.1.18",
+      "tailwindcss": "^4.1.18"
+   },
+   "scripts": {
+      "start": "npx @tailwindcss/cli -i ./core/static/css/tailwind/input.css -o ./core/static/css/tailwind/output.css --watch",
+      "build": "npx @tailwindcss/cli -i ./core/static/css/tailwind/input.css -o ./core/static/css/tailwind/output.css --min"
+   },
+   "devDependencies": {
+      "prettier": "^3.7.4",
+      "prettier-plugin-jinja-template": "^2.1.0",
+      "prettier-plugin-tailwindcss": "^0.7.2"
+   }
 }

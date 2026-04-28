@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.db.models import F, UniqueConstraint, Exists, OuterRef
 from django.contrib.auth.models import AbstractUser, UserManager
 
-from config.manager import QuerySetMixin
+from core.manager import QuerySetMixin
 
 
 def user_profile_picture_path(instance, filename):

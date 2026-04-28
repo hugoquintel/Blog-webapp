@@ -4,7 +4,7 @@ from django.db.models import UniqueConstraint
 
 from blog.models import Blog
 from interaction.models import Comment
-from config.manager import QuerySetMixin
+from core.manager import QuerySetMixin
 
 
 class NotificationQuerySet(QuerySetMixin, models.QuerySet):
