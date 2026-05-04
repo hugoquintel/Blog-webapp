@@ -54,6 +54,14 @@
       </c-button>
       {% render_field form.picture_delete ::checked="deletePicture" %}
    </div>
-   <c-blog-input-field :field="form.title" extra-attrs="::required = !isDeleted" />
-   <c-blog-input-field :field="form.content" extra-attrs="x-autosize ::required = !isDeleted" />
+   <c-blog-input-field
+      :field="form.title"
+      extra-attrs="::required = !isDeleted"
+      error-classes="w-fit px-2 py-1"
+   />
+   <c-blog-input-field
+      :field="form.content"
+      extra-attrs="x-autosize ::required = !isDeleted"
+      error-classes="w-fit px-2 py-1"
+   />
 </div>

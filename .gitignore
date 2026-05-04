@@ -2,7 +2,7 @@
 node_modules/
 
 # tailwind output file
-config/static/css/tailwind/output.css
+core/static/css/tailwind/output.css
 
 # Django stuff:
 *.log

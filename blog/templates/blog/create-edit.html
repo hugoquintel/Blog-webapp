@@ -34,8 +34,12 @@
                {% csrf_token %}
                <div class="flex w-full flex-col items-start space-y-4">
                   <div class="mb-15 w-full space-y-3">
-                     <c-blog-input-field :field="form_blog.title" />
-                     <c-blog-input-field :field="form_blog.description" extra-attrs="x-autosize" />
+                     <c-blog-input-field :field="form_blog.title" error-classes="w-fit px-2 py-1" />
+                     <c-blog-input-field
+                        :field="form_blog.description"
+                        extra-attrs="x-autosize"
+                        error-classes="w-fit px-2 py-1"
+                     />
                   </div>
                   <div x-ref="sections" class="w-full space-y-3">
                      {% render_field management_form.TOTAL_FORMS x-model="totalForm" %}

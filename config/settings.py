@@ -154,11 +154,12 @@ MAX_SUBCOMMENTS = 3
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "assets"
+STATIC_ROOT = env.str("STATIC_ROOT", default=BASE_DIR / "static")
 STATICFILES_DIRS = [BASE_DIR / "core/static"]
 
 MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / "media" if DEBUG else env.str("MEDIA_ROOT")
+
 
 # Extending the base User model
 AUTH_USER_MODEL = "user.User"
