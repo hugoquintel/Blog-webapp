@@ -33,6 +33,7 @@ dependencies = [
     { name = "django" },
     { name = "django-cleanup" },
     { name = "django-cotton" },
+    { name = "django-debug-toolbar" },
     { name = "django-htmx" },
     { name = "django-treebeard" },
     { name = "django-widget-tweaks" },
@@ -43,17 +44,13 @@ dependencies = [
     { name = "python-dateutil" },
 ]
 
-[package.dev-dependencies]
-dev = [
-    { name = "django-debug-toolbar" },
-]
-
 [package.metadata]
 requires-dist = [
     { name = "alt-profanity-check", specifier = ">=1.7.2" },
     { name = "django", specifier = ">=6.0" },
     { name = "django-cleanup", specifier = ">=9.0.0" },
     { name = "django-cotton", specifier = ">=2.6.1" },
+    { name = "django-debug-toolbar", specifier = ">=6.2.0" },
     { name = "django-htmx", specifier = ">=1.27.0" },
     { name = "django-treebeard", specifier = ">=4.8.0" },
     { name = "django-widget-tweaks", specifier = ">=1.5.1" },
@@ -65,7 +62,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "django-debug-toolbar", specifier = ">=6.2.0" }]
+dev = []
 
 [[package]]
 name = "click"

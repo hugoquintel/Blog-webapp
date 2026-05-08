@@ -5,4 +5,3 @@ This is the first stage of devlopment
 
 ## TODO: 
 - Write README
-- write .env
