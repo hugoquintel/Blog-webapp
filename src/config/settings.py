@@ -120,11 +120,16 @@ else:
 
 # HTTPS settings https://docs.djangoproject.com/en/6.0/topics/security/#ssl-https
 if env.bool("ENABLE_HTTPS", default=False):
-    SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS")
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("SECURE_HSTS_INCLUDE_SUBDOMAINS")
-    SECURE_HSTS_PRELOAD = env.bool("SECURE_HSTS_PRELOAD")
+    # The settings below should only be enable if the reverse proxy doesn't handle them already
+    # <------------------------------------------------------------------->
+    SECURE_HSTS_SECONDS = env.int("SECURE_HSTS_SECONDS", default=0)
+    SECURE_SSL_REDIRECT = env.bool("SECURE_SSL_REDIRECT", default=False)
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
+        "SECURE_HSTS_INCLUDE_SUBDOMAINS", default=False
+    )
+    SECURE_HSTS_PRELOAD = env.bool("SECURE_HSTS_PRELOAD", default=False)
+    # <------------------------------------------------------------------->
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-    SECURE_CONTENT_TYPE_NOSNIFF = True
 
 
 # Password validation
