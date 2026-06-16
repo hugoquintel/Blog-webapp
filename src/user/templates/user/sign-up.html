@@ -11,12 +11,13 @@
             <form
                method="post"
                action="{% url "user:sign-up" partial="auth_form" %}"
-               x-data="{showPassword: false}"
+               x-data="{showPassword: false, isProcessing: false}"
                hx-target="#auth-form"
                hx-push-url="false"
                hx-indicator="#loader"
                hx-disabled-elt="find button[type='submit']"
                class="flex flex-col"
+               @htmx:before-request.window="isProcessing = $event.detail.elt === $el"
             >
                {% csrf_token %}
 
@@ -59,15 +60,13 @@
                   <label for="show-password" class="select-none">show password</label>
                </div>
 
-               <c-button
+               <button
                   type="submit"
-                  bg-color="bg-theme-dark"
-                  text-color="text-white"
-                  font-size="text-base"
-                  extra-classes="self-center"
+                  class="self-center rounded-md px-2 py-1.5 text-base text-white"
+                  :class="isProcessing ? 'bg-gray-500 cursor-not-allowed' : 'bg-theme-dark cursor-pointer hover:opacity-(--hover-opacity)'"
                >
                   Sign up
-               </c-button>
+               </button>
             </form>
 
             <div class="flex items-center justify-center text-sm">
