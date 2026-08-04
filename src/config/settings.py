@@ -31,6 +31,7 @@ DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1"])
 
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
 
 # Application definition
 
